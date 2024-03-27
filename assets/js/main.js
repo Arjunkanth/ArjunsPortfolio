@@ -2,12 +2,15 @@
 !(function($) {
   "use strict";
 
-  // Nav Menu
-  $(document).on('click', '.nav-menu a, .mobile-nav a', function(e) {
-    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+  // Nav Menu handles the click event on certain links within the document.
+  $(document).on('click', '.nav-menu a, .mobile-nav a', function(e) 
+  {
+    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) 
+    {
       var hash = this.hash;
       var target = $(hash);
-      if (target.length) {
+      if (target.length) 
+      {
         e.preventDefault();
 
         if ($(this).parents('.nav-menu, .mobile-nav').length) {
@@ -45,18 +48,18 @@
   });
 
   // Activate/show sections on load with hash links
-  if (window.location.hash) {
-    var initial_nav = window.location.hash;
-    if ($(initial_nav).length) {
-      $('#header').addClass('header-top');
-      $('.nav-menu .active, .mobile-nav .active').removeClass('active');
-      $('.nav-menu, .mobile-nav').find('a[href="' + initial_nav + '"]').parent('li').addClass('active');
-      setTimeout(function() {
-        $("section").removeClass('section-show');
-        $(initial_nav).addClass('section-show');
-      }, 350);
-    }
-  } 
+  // if (window.location.hash) {
+  //   var initial_nav = window.location.hash;
+  //   if ($(initial_nav).length) {
+  //     $('#header').addClass('header-top');
+  //     $('.nav-menu .active, .mobile-nav .active').removeClass('active');
+  //     $('.nav-menu, .mobile-nav').find('a[href="' + initial_nav + '"]').parent('li').addClass('active');
+  //     setTimeout(function() {
+  //       $("section").removeClass('section-show');
+  //       $(initial_nav).addClass('section-show');
+  //     }, 350);
+  //   }
+  // } 
 
   // Mobile Navigation
   if ($('.nav-menu').length) {
@@ -94,13 +97,13 @@
   });
 
   // Skills section
-  $('.skills-content').waypoint(function() {
-    $('.progress .progress-bar').each(function() {
-      $(this).css("width", $(this).attr("aria-valuenow") + '%');
-    });
-  }, {
-    offset: '80%'
-  });
+  // $('.skills-content').waypoint(function() {
+  //   $('.progress .progress-bar').each(function() {
+  //     $(this).css("width", $(this).attr("aria-valuenow") + '%');
+  //   });
+  // }, {
+  //   offset: '80%'
+  // });
 
   // Testimonials carousel (uses the Owl Carousel library)
   // $(".testimonials-carousel").owlCarousel({
@@ -120,7 +123,7 @@
   //   }
   // });
 
-  // Porfolio isotope and filter
+  // Porfolio isotope and filter - for filtering the projects
   $(window).on('load', function() {
     var portfolioIsotope = $('.portfolio-container').isotope({
       itemSelector: '.portfolio-item',
